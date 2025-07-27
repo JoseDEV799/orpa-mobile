@@ -3,19 +3,42 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar, FlatList, B
 const logo = require('../assets/ORPA-logo.png')
 const DATA = [
     {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        title: 'Contenido de Humedad',
+        test: 'ContenidoHumedad'
+    },
+    {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'Proyecto 1',
+        title: 'Granulometria de gruesos',
+        test: 'GranulometriaGruesos'
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Proyecto 2',
+        title: 'Granulometria de finos',
+        test: 'ContenidoHumedad'
     },
     {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Proyecto 3',
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f62',
+        title: 'Limites',
+        test: 'ContenidoHumedad'
+    },
+    {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f64',
+        title: 'Corte Directo',
+        test: 'ContenidoHumedad'
+    },
+    {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f65',
+        title: 'Densidad 3/4"',
+        test: 'ContenidoHumedad'
+    },
+    {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f66',
+        title: 'Densidad 10"',
+        test: 'ContenidoHumedad'
     },
 ];
-export default function Projects({ navigation }) {
+export default function Tests({ navigation }) {
 
     return (
         <View style={styles.container}>
@@ -34,7 +57,7 @@ export default function Projects({ navigation }) {
                 <FlatList
                     data={DATA}
                     renderItem={({ item }) =>
-                        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Tests')}>
+                        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(item.test)}>
                             <Text style={styles.buttonText}>{item.title}</Text>
                         </TouchableOpacity>
                     }
@@ -61,7 +84,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderBottomWidth: 1,
         borderColor: '#1A1A1A',
-        paddingTop: 20,
+        paddingTop: 20
     },
     logo: {
         width: 40,

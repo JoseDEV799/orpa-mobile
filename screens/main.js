@@ -1,61 +1,77 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Animated } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Alert, StatusBar } from 'react-native';
 
-export default function Main({ navigation }) {
+const logo = require('../assets/ORPA-logo.png')
+
+export default function Projects ({ navigation }) {
 
     return (
-        // Vista principal de la app
-        <View style={style.container}>
+        // Contenedor de la vista
+        <View style={styles.container}>
 
-            {/* Options */}
-            <View>
+            {/* Ocultar barra de estado del telefono */}
+            <StatusBar hidden/>
 
-                {/* Navigate - Projects */}
-                <TouchableOpacity
-                    onPress={()=> navigation.navigate('Projects')}
-                    style={style.button}
-                >
-                    <Text style={style.buttonText}>Proyectos</Text>
-                </TouchableOpacity>
+            {/* Contenido del menu principal - LOGO */}
+            <View style={styles.content}>
+
+                {/* Logo de la aplicacion */}
+                <Image source={logo} style={styles.logo}/>
+
             </View>
 
+            {/* Contenido del menu principal - Opciones */}
+            <View style={[styles.content, styles.content_options]}>
+
+                {/* Opciones personalidas */}
+                <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Projects')}>
+                    <Text style={styles.buttonText}>Proyectos</Text>
+                </TouchableOpacity>
+
+            </View>
         </View>
-    );
+    )      
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
-        backgroundColor: '#10254F',
-        paddingHorizontal: 20,
+        backgroundColor: '#101820',
+        alignItems: 'center'
     },
-    container_icon: {
-        width: '100%',
-        height: '40%',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    // icon: {
-    //     width: 200,
-    //     height: 200,
-    //     borderRadius: 100,
-    // },
-    username: {
+    title:{
         color: 'white',
-        fontSize: 15
+        fontSize: 20
+    },
+    logo: {
+        width: 200,
+        height: 200,
+        borderRadius: 20
+    },
+    content: {
+        width: '100%',
+        height: '50%',
+        paddingHorizontal: 40,
+        paddingTop: 60,
+        alignItems: 'center',
+    },
+    content_options: {
+        justifyContent: 'flex-end',
+        paddingBottom: 100        
     },
     button: {
-        backgroundColor: 'white',
-        padding: 10,
-        borderRadius: 4,
+        width: '100%',
+        height: 40,
+        backgroundColor: '#007ACC',
         alignItems: 'center',
+        justifyContent: 'center',
         borderWidth: 1,
-        borderColor: 'black'
+        borderColor: '#1A1A1A',
+        borderRadius: 10
     },
     buttonText: {
-        color: 'black',
-        fontSize: 16
+        color: '#FFFFFF',
+        fontSize: 15,
+        fontFamily: 'sans-serif'
     }
 })
-
